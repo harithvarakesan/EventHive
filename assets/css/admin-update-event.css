@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+h2{
+    margin: 0;
+}
+/* Header Styles */
+.update_event {
+    background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,52,117,1) 100%);
+    padding: 10px 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    border-bottom: 4px solid #0056b3;
+}
+
+/* Main Container */
+.update-event-container {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Input Styles */
+input, textarea {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    background-color: #e6f2ff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit Button */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Focused Button */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+}
+
+/* Input Placeholder Styles */
+input::placeholder, textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .update_event {
+        font-size: 1.5rem;
+    }
+
+    .update-event-container {
+        padding: 30px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,164 @@
+/* Your Events Page Styles */
+.your-events-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.your-events-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.events-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* Adjusts spacing between cards */
+}
+
+.event-card {
+    width: 30%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.event-card h3 {
+    font-size: 18px;
+}
+
+.event-card .description {
+    font-style: italic;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Container for the filter input */
+.filter-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Styling for the input field */
+#event-name-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Change border color on focus */
+#event-name-input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add subtle blue glow */
+}
+
+/* Optional: Add some space between filter and event list */
+.events-list {
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small screens (up to 600px) */
+@media (max-width: 600px) {
+    .your-events-container {
+        padding: 15px;
+    }
+
+    .your-events-container h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .events-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #event-name-input {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Medium screens (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .event-card {
+        width: 45%; /* Adjust the width for medium screens */
+    }
+
+    #event-name-input {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Large screens (1025px and above) */
+@media (min-width: 1025px) {
+    .event-card {
+        width: 30%; /* Default layout for large screens */
+    }
+
+    #event-name-input {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+/* Flex container for buttons */
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 15px; /* Space from the content above */
+}
+
+/* View Button */
+.view-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}

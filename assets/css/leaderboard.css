@@ -1,0 +1,177 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Main Container */
+.leaderboard-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter Section */
+.filters {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filters select, .filters input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 5px;
+}
+
+.filters input {
+    width: 200px;
+}
+
+/* Podium Section */
+.podium {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.podium-position {
+    text-align: center;
+    width: 25%;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 20px; /* Adds spacing between podium items on smaller screens */
+}
+
+.position-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.student-name {
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+.college-name, .score {
+    font-size: 16px;
+    color: white;
+}
+
+.first {
+    background-color: #ffd700; /* Gold */
+}
+
+.second {
+    background-color: #c0c0c0; /* Silver */
+}
+
+.third {
+    background-color: #cd7f32; /* Bronze */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* On smaller screens, reduce podium width */
+    .podium-position {
+        width: 45%; /* 2 items per row */
+    }
+
+    /* Ensure all elements within the podium are centered */
+    .podium {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On mobile devices, reduce podium width further */
+    .podium-position {
+        width: 100%; /* 1 item per row */
+    }
+
+    /* Adjust text size for smaller screens */
+    .position-title, .student-name, .college-name, .score {
+        font-size: 14px;
+    }
+}
+
+/* Table Styles */
+.leaderboard-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+#pagination #page-numbers button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#pagination #page-numbers button:hover {
+    background-color: #0056b3;
+}
