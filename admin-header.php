@@ -19,6 +19,7 @@ if (!isset($_SESSION['host_id'])) {
     <header class="admin-header">
         <nav class="navbar">
             <div class="logo">Admin Panel</div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="admin-profile.php">Profile</a></li>
                 <li><a href="admin-create-event.php">Create Event</a></li>
@@ -26,6 +27,12 @@ if (!isset($_SESSION['host_id'])) {
                 <li><a href="admin-logout.php" class="logout">Logout</a></li>
             </ul>
         </nav>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        }
+    </script>
     </header>
 </body>
 </html>
