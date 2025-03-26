@@ -19,7 +19,7 @@ if (!isset($_SESSION['host_id'])) {
     <header class="admin-header">
         <nav class="navbar">
             <div class="logo">Admin Panel</div>
-            <ul>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="admin-profile.php">Profile</a></li>
                 <li><a href="admin-create-event.php">Create Event</a></li>
                 <li><a href="admin-your-events.php">Your Events</a></li>

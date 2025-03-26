@@ -40,9 +40,16 @@ $conn->close();
 </head>
 <body>
     <main class="profile-container">
-        <div class="profile-box">
-            <h2>Admin Profile</h2>
-            <form  method="POST" action="operations/admin_update_profile.php">
+        <header class="profile-header">
+            <div class="profile-picture">
+                <div class="avatar">
+                    <span id="profile-letter"><?php echo strtoupper($user['username'][0]); ?></span>
+                </div>
+            </div>
+            <h1>User Profile</h1>
+        </header>
+        <div class="profile-details">
+            <form  id="profile-form"  method="POST" action="operations/admin_update_profile.php">
                 
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" disabled>

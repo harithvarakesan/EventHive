@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect to the appropriate dashboard
             if ($userType === "user") {
                 $_SESSION['user_id'] = $row['id'];
-                header("Location: ../home.php");
+                header("Location: ../index.php");
             } else if ($userType === "admin") {
                 $_SESSION['host_id'] = $row['id'];
                 header("Location: ../admin-your-events.php");

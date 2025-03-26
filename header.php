@@ -15,7 +15,7 @@ session_start();
         <div class="logo">EventHive</div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="home.php">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="leaderboard.php">Leaderboard</a></li>
             <li><a href="profile.php">Profile</a></li>
             <li><a href="registrations.php">Your Registrations</a></li>

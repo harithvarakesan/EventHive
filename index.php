@@ -49,7 +49,7 @@
                     <h2>" . htmlspecialchars($row['name']) . "</h2>
                     <p class='description'>" . htmlspecialchars($row['short_description']) . "</p>
                     <p><strong>Location:</strong> " . htmlspecialchars($row['location']) . "</p>
-                    <p><strong>Dates:</strong> " . htmlspecialchars($row['start_date']) . "<br> to <br>" . htmlspecialchars($row['end_date']) . "</p>
+                    <p style='text-align: center;'><strong>Dates:</strong> " . htmlspecialchars($row['start_date']) . "<br> to <br>" . htmlspecialchars($row['end_date']) . "</p>
                     <button onclick=\"navigateToEventDetails('" . htmlspecialchars($row['id']) . "')\">View Details</button>
                     <button class='register-button' onclick=\"submitRegistration('" . htmlspecialchars($row['id']) . "')\">Register</button>
                 </div>";
