@@ -1,4 +1,3 @@
-
 <?php include './header.php'; ?>
 <?php
 include './operations/db_connection.php';
@@ -37,29 +36,46 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Leaderboard</title>
-    <link rel="stylesheet" href="./assets/css/leaderboard.css">
-</head>
-<body>
-    <header>
-        <h1>Event Leaderboard</h1>
-    </header>
-
-    <main class="leaderboard-container">
-        <!-- Podium Section for Top 3 Students -->
-        <section class="podium">
-            <?php
-            // Display the top 3 students
-            for ($i = 0; $i < 3 && $i < count($students); $i++) {
-                $rank = $i + 1;
-                $student = $students[$i];
-                $placeClass = ($rank === 1) ? 'first' : (($rank === 2) ? 'second' : 'third');
-                echo "
+<?php $pageTitle = "Event Leaderboard"; include 'header.php'; ?>
+        <div class="flex justify-between items-center mb-8 pt-10 px-8">
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i data-lucide='trophy'></i> Leaderboard</h2>
+        </div>
+        <div class="overflow-x-auto px-8">
+            <!-- Podium Section for Top 3 Students -->
+            <section class="podium mb-8">
+                <?php
+                // Display the top 3 students
+                for ($i = 0; $i < 3 && $i < count($students); $i++) {
+                    $rank = $i + 1;
+                    $student = $students[$i];
+                    $placeClass = ($rank === 1) ? 'first' : (($rank === 2) ? 'second' : 'third');
+                    ?>
+                    <div class='podium-position <?=$placeClass?> bg-white rounded-xl shadow-md border border-orange-100 p-4'>
+                        <div class='position-title text-orange-600 uppercase tracking-wider'><?=$rank?>st Place</div>
+                        <h2 class='student-name text-lg font-bold text-gray-900'><?=$student['name']?></h2>
+                        <p class='college-name text-gray-600'><?=$student['college']?></p>
+                        <p class='score text-orange-500 font-bold text-lg'>Score: <?=$student['score']?></p>
+                    </div>
+                <?php } ?>
+            </section>
+            <main class="leaderboard-container">
+                <!-- Podium Section for Top 3 Students -->
+                <section class="podium">
+                    <?php
+                    // Display the top 3 students
+                    for ($i = 0; $i < 3 && $i < count($students); $i++) {
+                        $rank = $i + 1;
+                        $student = $students[$i];
+                        $placeClass = ($rank === 1) ? 'first' : (($rank === 2) ? 'second' : 'third');
+                        ?>
+                        <div class='podium-position <?=$placeClass?>'>
+                            <div class='position-title'><?=$rank?>st Place</div>
+                            <h2 class='student-name'><?=$student['name']?></h2>
+                            <p class='college-name'><?=$student['college']?></p>
+                            <p class='score'>Score: <?=$student['score']?></p>
+                        </div>
+                    <?php } ?>
+                </section>
                     <div class='podium-position {$placeClass}'>
                         <div class='position-title'>{$rank}st Place</div>
                         <h2 class='student-name'>{$student['name']}</h2>
@@ -196,5 +212,6 @@ $conn->close();
         // Initial pagination setup
         filterLeaderboard();
     </script>
+</div>
 </body>
 </html>

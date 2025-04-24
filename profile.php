@@ -37,7 +37,7 @@ $stmt->close();
 $conn->close();
 ?>
 
-<!DOCTYPE html>
+<?php $pageTitle = "Profile - EventHive"; include 'header.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -89,5 +89,6 @@ $conn->close();
         </section>
     </main>
 
+</div>
 </body>
 </html>

@@ -38,7 +38,7 @@ $stmt->close();
 $conn->close();
 ?>
 
-<!DOCTYPE html>
+<?php $pageTitle = "Your Registrations - EventHive"; include 'header.php'; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,5 +130,6 @@ $conn->close();
     displayRegisteredEvents(allEvents);
 </script>
 
+</div>
 </body>
 </html>
