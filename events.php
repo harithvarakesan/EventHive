@@ -1,4 +1,5 @@
 <?php $pageTitle = "Events - EventHive"; include 'header.php'; ?>
+
 <div class="pl-60 min-h-screen bg-gray-50 font-inter p-8">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-4 md:mb-0">Explore Events</h2>

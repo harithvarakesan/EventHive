@@ -38,6 +38,7 @@ $conn->close();
 ?>
 
 <?php $pageTitle = "Profile - EventHive"; include 'header.php'; ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +52,7 @@ $conn->close();
         <header class="profile-header">
             <div class="profile-picture">
                 <div class="avatar">
-                    <span id="profile-letter"><?php echo strtoupper($user['username'][0]); ?></span>
+                    <canvas id="profile-avatar" width="100" height="100" data-name="<?php echo htmlspecialchars($user['name']); ?>" class="avatar"></canvas><noscript><span id="profile-letter"><?php echo strtoupper($user['username'][0]); ?></span></noscript>
                 </div>
             </div>
             <h1>User Profile</h1>
@@ -89,6 +90,7 @@ $conn->close();
         </section>
     </main>
 
+</div>
 </div>
 </body>
 </html>

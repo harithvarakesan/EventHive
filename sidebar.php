@@ -15,12 +15,7 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : null;
                 <li><a href="index.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 font-medium text-gray-700"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="events.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 font-medium text-gray-700"><i class="fa fa-calendar"></i> Events</a></li>
 
-                <?php if ($userType === 'user' || $userType === 'admin'): ?>
-                    <li><a href="leaderboard.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 font-medium text-gray-700"><i class="fa fa-trophy"></i> Leaderboard</a></li>
-                <?php endif; ?>
-                <?php if ($userType === 'user'): ?>
-                    <li><a href="registrations.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 font-medium text-gray-700"><i class="fa fa-list"></i> My Registrations</a></li>
-                <?php elseif ($userType === 'admin'): ?>
+                <?php if ($userType === 'admin'): ?>
                     <li><a href="admin-your-events.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 font-medium text-gray-700"><i class="fa fa-tasks"></i> Manage Events</a></li>
                 <?php endif; ?>
             </ul>

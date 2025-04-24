@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) { session_start(); }
 // Set a default title if not provided
 if (!isset($pageTitle)) {
     $pageTitle = "EventHive";
@@ -26,5 +26,14 @@ if (!isset($pageTitle)) {
     <script src="assets/js/scrollmagic.js"></script>
 </head>
 <body>
-<?php include 'sidebar.php'; ?>
+<?php
+if (isset($_SESSION['user_id'])) {
+    include 'user_sidebar.php';
+    echo '<div class="md:ml-60 flex min-h-screen bg-orange-50">';
+} else {
+    include 'sidebar.php';
+    echo '<div class="flex min-h-screen bg-orange-50">';
+}
+?>
+
 <!-- Main content continues... -->
