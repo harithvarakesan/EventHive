@@ -17,6 +17,9 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
       <span class="text-2xl font-bold text-orange-600">EventHive Admin</span>
     </div>
     <nav class="flex flex-col gap-2 mt-4 px-4">
+      <a href="admin_dashboard.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium<?php if(basename($_SERVER['PHP_SELF'])=='admin_dashboard.php'){echo ' bg-orange-100 text-orange-700';} ?>">
+        <i data-lucide="layout-dashboard" class="w-5 h-5 text-orange-400"></i> Dashboard
+      </a>
       <a href="admin-your-events.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="calendar" class="w-5 h-5 text-orange-400"></i> Your Events
       </a>
@@ -26,12 +29,9 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
       <a href="admin-profile.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="user" class="w-5 h-5 text-orange-400"></i> Profile
       </a>
-      <!-- <a href="admin-event-detail.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
+      <a href="admin-event-detail.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium<?php if(basename($_SERVER['PHP_SELF'])=='admin-event-detail.php'){echo ' bg-orange-100 text-orange-700';} ?>">
         <i data-lucide="info" class="w-5 h-5 text-orange-400"></i> Event Details
-      </a> -->
-      <!-- <a href="admin-update-event.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
-        <i data-lucide="edit-3" class="w-5 h-5 text-orange-400"></i> Update Event
-      </a> -->
+      </a>
       
     </nav>
   </div>
@@ -39,7 +39,12 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
     <div class="flex items-center gap-3">
       <div>
         <div class="font-semibold text-gray-800">Signed in as:</div>
-        <div class="text-sm text-orange-600 font-bold"><span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-orange-600 font-bold text-xl"><?php echo strtoupper(substr($adminName,0,2)); ?></span></div>
+        <div class="text-sm text-orange-600 font-bold">
+          <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-orange-600 font-bold text-xl"><?php echo strtoupper(substr($adminName,0,2)); ?></span>
+        </div>
+        <div class="text-xs text-gray-700 mt-1">
+          <?php echo htmlspecialchars($adminName); ?>
+        </div>
       </div>
     </div>
     <a href="admin-logout.php" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-50 text-red-500 font-medium">

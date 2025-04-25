@@ -1,5 +1,4 @@
 <?php
-include 'admin-header.php';
 include './operations/db_connection.php';
 
 if (!isset($_SESSION['host_id'])) {
@@ -106,6 +105,45 @@ $conn->close();
                 <div class="bg-orange-50 rounded p-3 text-gray-600"><?php echo nl2br(htmlspecialchars($event['eligibility'])); ?></div>
             </div>
         </div>
+        <!-- Participants Table -->
+        <?php if ($students && $students->num_rows > 0): ?>
+        <form method="post" class="mt-8">
+            <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100 mt-6">
+                <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-orange-700">Registered Participants</h3>
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition">Update Attendance & Marks</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-orange-100">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Name</th>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Attendance</th>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Mark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($students as $student): ?>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-gray-800"><?php echo htmlspecialchars($student['name']); ?></td>
+                                <td class="px-4 py-2">
+                                    <input type="checkbox" name="participants[<?php echo $student['participant_id']; ?>][attendance]" value="1" <?php echo ($student['mark'] != -1 ? 'checked' : ''); ?> class="w-5 h-5 text-orange-500 border-gray-300 rounded">
+                                </td>
+                                <td class="px-4 py-2">
+                                    <input type="number" name="participants[<?php echo $student['participant_id']; ?>][mark]" min="0" max="100" value="<?php echo ($student['mark'] != -1 ? (int)$student['mark'] : ''); ?>" class="w-20 px-2 py-1 border rounded">
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <?php else: ?>
+            <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100 mt-6 text-center text-gray-500">
+                No participants registered for this event.
+            </div>
+        <?php endif; ?>
     </main>
 </div>
 <script>if(window.lucide) lucide.createIcons();</script>

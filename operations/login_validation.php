@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else if ($userType === "admin") {
                 $_SESSION['host_id'] = $row['id'];
-                header("Location: ../admin-your-events.php");
+                header("Location: ../admin_dashboard.php");
             }
             exit();
         } else {
