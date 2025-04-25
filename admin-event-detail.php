@@ -1,4 +1,5 @@
 <?php
+include 'admin-header.php';
 include './operations/db_connection.php';
 
 if (!isset($_SESSION['host_id'])) {
