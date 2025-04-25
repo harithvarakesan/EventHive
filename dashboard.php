@@ -63,7 +63,7 @@ $notifications = [
 
 $conn->close();
 ?>
-<div class="md:ml-60 flex min-h-screen bg-orange-50">
+<div class=" flex min-h-screen bg-orange-50">
   <div class="flex-1 flex flex-col gap-8 py-8 px-4 md:px-12">
     <div class="max-w-6xl w-full mx-auto flex flex-col gap-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">

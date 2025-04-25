@@ -1,13 +1,13 @@
 <?php $pageTitle = "Events - EventHive"; include 'header.php'; ?>
 
-<div class="pl-60 min-h-screen bg-gray-50 font-inter p-8">
+<div class="w-full min-h-screen bg-gray-50 font-inter p-8">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-4 md:mb-0">Explore Events</h2>
         <div class="flex gap-2">
             <input id="search-bar" type="text" placeholder="Search by name, location, or type..." class="border border-orange-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 w-64" oninput="filterEvents()">
         </div>
     </div>
-    <div id="events-list" class="flex flex-wrap gap-6">
+    <div id="events-list" class="flex flex-wrap gap-6 justify-even">
         <?php
         include './operations/db_connection.php';
         $sql = "SELECT * FROM event ORDER BY start_date ASC";
@@ -23,7 +23,7 @@
                 echo "<h3 class='font-semibold text-lg mb-1'>" . htmlspecialchars($row['name']) . "</h3>";
                 echo "<div class='text-sm text-gray-500 mb-1'><i class='fa fa-calendar mr-1'></i> " . htmlspecialchars(date('M d, Y', strtotime($row['start_date']))) . "</div>";
                 echo "<div class='text-sm text-gray-500 mb-1'><i class='fa fa-map-marker mr-1'></i> " . htmlspecialchars($row['location']) . "</div>";
-                echo "<div class='text-sm text-gray-500 mb-2'><i class='fa fa-users mr-1'></i> " . htmlspecialchars($row['participants'] ?? 0) . " participants</div>";
+                // echo "<div class='text-sm text-gray-500 mb-2'><i class='fa fa-users mr-1'></i> " . htmlspecialchars($row['participants'] ?? 0) . " participants</div>";
                 echo "<p class='text-gray-600 mb-3'>" . htmlspecialchars($row['short_description']) . "</p>";
                 echo "<div class='flex gap-2 mt-auto'>";
                 echo "<a href='eventDetails.php?eventId=" . urlencode($row['id']) . "' class='px-4 py-2 bg-orange-50 text-orange-500 rounded-lg font-medium hover:bg-orange-100 transition'>View Details</a>";

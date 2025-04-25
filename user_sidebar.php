@@ -37,9 +37,9 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
         <i data-lucide="bell" class="w-5 h-5 text-orange-400"></i> Notifications
         <span class="absolute right-3 top-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold leading-none text-white bg-red-500 rounded-full">3</span>
       </a>
-      <a href="settings.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
+      <!-- <a href="settings.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="settings" class="w-5 h-5 text-orange-400"></i> Settings
-      </a>
+      </a> -->
     </nav>
   </div>
   <div class="px-6 py-6 border-t border-orange-100 flex flex-col gap-2">
@@ -52,9 +52,9 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
     <a href="admin-logout.php" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-50 text-red-500 font-medium">
       <i data-lucide="log-out" class="w-5 h-5 text-red-400"></i> Logout
     </a>
-    <button id="dark-mode-toggle" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-100 text-gray-700 font-medium bg-gray-100">
+    <!-- <button id="dark-mode-toggle" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-100 text-gray-700 font-medium bg-gray-100">
       <i data-lucide="moon" class="w-5 h-5 text-gray-500"></i> Dark Mode
-    </button>
+    </button> -->
   </div>
 </aside>
 <script src="assets/js/uiux.js"></script>

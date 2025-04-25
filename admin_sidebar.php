@@ -26,12 +26,12 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
       <a href="admin-profile.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="user" class="w-5 h-5 text-orange-400"></i> Profile
       </a>
-      <a href="admin-event-detail.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
+      <!-- <a href="admin-event-detail.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="info" class="w-5 h-5 text-orange-400"></i> Event Details
-      </a>
-      <a href="admin-update-event.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
+      </a> -->
+      <!-- <a href="admin-update-event.php" class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-orange-50 text-gray-700 font-medium">
         <i data-lucide="edit-3" class="w-5 h-5 text-orange-400"></i> Update Event
-      </a>
+      </a> -->
       
     </nav>
   </div>
@@ -45,9 +45,9 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
     <a href="admin-logout.php" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-50 text-red-500 font-medium">
       <i data-lucide="log-out" class="w-5 h-5 text-red-400"></i> Logout
     </a>
-    <button id="dark-mode-toggle" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-100 text-gray-700 font-medium bg-gray-100">
+    <!-- <button id="dark-mode-toggle" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-100 text-gray-700 font-medium bg-gray-100">
       <i data-lucide="moon" class="w-5 h-5 text-gray-500"></i> Dark Mode
-    </button>
+    </button> -->
   </div>
 </aside>
 <script src="assets/js/uiux.js"></script>
