@@ -1,19 +1,17 @@
 <?php
-// notifications.php - User notifications page (demo)
-$pageTitle = "Notifications - EventHive";
-include 'header.php';
+// admin_notifications.php - Admin notifications page
+$pageTitle = "Admin Notifications - EventHive";
+include 'admin-header.php';
 ?>
 <div class="flex-1 flex flex-col items-center justify-start py-12">
   <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
     <h2 class="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-6">
       <i data-lucide="bell" class="w-7 h-7 text-orange-500"></i>
-      Notifications
+      Admin Notifications
     </h2>
-    <ul id="user-notif-list" class="divide-y divide-orange-100 dark:divide-gray-700"></ul>
+    <ul id="admin-notif-list" class="divide-y divide-orange-100 dark:divide-gray-700"></ul>
   </div>
 </div>
-</div>
-<?php // Close sidebar/layout div from header.php ?>
 <script>
 function timeAgo(dateString) {
   const now = new Date();
@@ -24,11 +22,11 @@ function timeAgo(dateString) {
   if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
   return Math.floor(diff/86400) + 'd ago';
 }
-function fetchUserNotifications() {
+function fetchAdminNotifications() {
   fetch('get_all_notifications.php')
     .then(res => res.json())
     .then(data => {
-      const list = document.getElementById('user-notif-list');
+      const list = document.getElementById('admin-notif-list');
       list.innerHTML = '';
       if (data.notifications && data.notifications.length > 0) {
         data.notifications.forEach(n => {
@@ -44,7 +42,7 @@ function fetchUserNotifications() {
       }
     });
 }
-fetchUserNotifications();
-setInterval(fetchUserNotifications, 5000);
+fetchAdminNotifications();
+setInterval(fetchAdminNotifications, 5000);
 if(window.lucide) lucide.createIcons();
 </script>

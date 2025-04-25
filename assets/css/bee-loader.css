@@ -1,0 +1,92 @@
+/* Bee Loader Animation */
+.bee-loader-container {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10000;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.bee-loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bee-body {
+  width: 32px;
+  height: 32px;
+  background: #facc15;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 4px #fffbe7, 0 2px 8px 0 #fbbf24;
+  animation: bee-bounce 1.1s infinite cubic-bezier(.6,.1,.4,1);
+}
+.bee-stripes {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  z-index: 3;
+  pointer-events: none;
+}
+.bee-stripes span {
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 32px;
+  background: #222;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+.bee-stripes .stripe1 { left: 8px; }
+.bee-stripes .stripe2 { left: 16px; }
+.bee-stripes .stripe3 { left: 24px; }
+.bee-wings {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 20px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.bee-wing {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  opacity: 0.7;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  animation: bee-wing-flap 0.45s infinite alternate cubic-bezier(.6,.1,.4,1);
+}
+.bee-wing.right {
+  transform: rotate(15deg);
+  animation-delay: 0.2s;
+}
+.bee-face {
+  position: absolute;
+  top: 8px; left: 0; width: 32px; height: 16px;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+}
+.bee-eye {
+  width: 5px;
+  height: 5px;
+  background: #222;
+  border-radius: 50%;
+  margin: 0 3px;
+  opacity: 0.9;
+}
+@keyframes bee-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes bee-wing-flap {
+  0% { transform: scaleY(1) rotate(-15deg); }
+  100% { transform: scaleY(1.4) rotate(-5deg); }
+}

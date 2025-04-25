@@ -36,6 +36,37 @@ window.addEventListener('DOMContentLoaded', () => {
         .addTo(controller);
     });
   }
+  // Real-time notification polling
+  (function() {
+    let notifiedIds = {};
+    setInterval(function() {
+      fetch('check_notifications.php')
+        .then(res => res.json())
+        .then(data => {
+          if (data.new_notifications && data.new_notifications.length > 0) {
+            let toMarkRead = [];
+            data.new_notifications.forEach(n => {
+              if (!notifiedIds[n.id]) {
+                window.showToast(n.message, 'info');
+                notifiedIds[n.id] = true;
+                // Only mark real (not demo) notifications as read
+                if (!String(n.id).startsWith('demo-')) {
+                  toMarkRead.push(n.id);
+                }
+              }
+            });
+            // Mark notifications as read
+            if (toMarkRead.length > 0) {
+              fetch('mark_notifications_read.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ids: toMarkRead})
+              });
+            }
+          }
+        });
+    }, 5000);
+  })();
   // Lottie for animated icons (optional)
   // Example: lottie.loadAnimation({container: document.getElementById('lottie-icon'), ...})
 });

@@ -27,13 +27,34 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="assets/css/bee-loader.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body>
+    <div id="bee-loader" class="bee-loader-container" style="display:none">
+      <div class="bee-loader">
+        <div class="bee-wings">
+          <div class="bee-wing left"></div>
+          <div class="bee-wing right"></div>
+        </div>
+        <div class="bee-body"></div>
+        <div class="bee-stripes">
+          <span class="stripe1"></span>
+          <span class="stripe2"></span>
+          <span class="stripe3"></span>
+        </div>
+        <div class="bee-face">
+          <div class="bee-eye"></div>
+          <div class="bee-eye"></div>
+        </div>
+      </div>
+    </div>
+        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
 <?php include 'admin_sidebar.php'; ?>
 <div class="md:ml-60 flex flex-col min-h-screen transition-all duration-300">
     <header class="flex items-center justify-between px-6 py-6 border-b bg-white sticky top-0 z-40">
@@ -167,5 +188,27 @@ $conn->close();
     </main>
 </div>
 <script>if(window.lucide) lucide.createIcons();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/js/uiux.js"></script>
+<script>
+window.showBeeLoader = function(show = true) {
+  const loader = document.getElementById('bee-loader');
+  if (!loader) return;
+  loader.style.display = show ? 'flex' : 'none';
+}
+</script>
+<script>
+// Toast utility
+window.showToast = function(msg, type = 'info', duration = 3000) {
+  const toast = document.createElement('div');
+  toast.className = `px-4 py-2 rounded shadow text-white font-semibold toast-${type}`;
+  toast.style.background = type === 'success' ? '#16a34a' : type === 'error' ? '#dc2626' : '#ea580c';
+  toast.textContent = msg;
+  document.getElementById('toast-container').appendChild(toast);
+  setTimeout(() => toast.remove(), duration);
+}
+</script>
+<style>.toast-info{background:#ea580c}.toast-success{background:#16a34a}.toast-error{background:#dc2626}</style>
 </body>
 </html>
