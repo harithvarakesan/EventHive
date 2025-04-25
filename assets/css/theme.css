@@ -1,0 +1,170 @@
+/* Global Theme Styles for EventHive */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #fafbfc;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    width: 230px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.04);
+    z-index: 100;
+}
+.sidebar-header {
+    padding: 32px 0 16px 0;
+    text-align: center;
+}
+.sidebar-logo {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: #ff7300;
+    letter-spacing: 1px;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-nav li {
+    margin: 18px 0;
+}
+.sidebar-nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.07rem;
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.18s;
+}
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: #fff3e0;
+    color: #ff7300;
+}
+.sidebar-actions {
+    padding: 18px 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.sidebar-btn {
+    display: block;
+    width: 140px;
+    padding: 9px 0;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+.sidebar-signin {
+    background: #ff7300;
+    color: #fff;
+}
+.sidebar-signup {
+    background: #fff;
+    color: #ff7300;
+    border: 1px solid #ff7300;
+}
+.sidebar-darkmode {
+    margin-bottom: 8px;
+    font-size: 0.97rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Main Content Layout */
+.main-content {
+    margin-left: 230px;
+    padding: 38px 48px 28px 48px;
+}
+
+/* Card Styles */
+.event-card, .info-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 24px 22px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.18s;
+}
+.event-card:hover {
+    box-shadow: 0 4px 24px rgba(255,115,0,0.11);
+}
+.event-card h2 {
+    font-size: 1.17rem;
+    color: #ff7300;
+    margin-bottom: 6px;
+}
+.event-card .description {
+    color: #555;
+    margin-bottom: 8px;
+}
+.event-card button {
+    background: #ff7300;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 18px;
+    margin: 6px 4px 0 0;
+    cursor: pointer;
+    font-size: 0.97rem;
+    transition: background 0.18s;
+}
+.event-card button:hover {
+    background: #ff8800;
+}
+/* Info Cards (For Participants/Hosts) */
+.info-section {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+}
+.info-card {
+    flex: 1;
+    padding: 28px 24px;
+    border: 1px solid #f5e7d6;
+    background: #fffdfa;
+}
+.info-card h3 {
+    color: #ff7300;
+    margin-bottom: 10px;
+}
+.info-card button, .info-card a {
+    background: #ff7300;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    margin-top: 12px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+.info-card button:hover, .info-card a:hover {
+    background: #ff8800;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main-content {
+        padding: 18px 8px 18px 8px;
+    }
+    .info-section {
+        flex-direction: column;
+    }
+}
