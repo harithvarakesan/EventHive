@@ -7,7 +7,7 @@
             <input id="search-bar" type="text" placeholder="Search by name, location, or type..." class="border border-orange-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 w-64" oninput="filterEvents()">
         </div>
     </div>
-    <div id="events-list" class="flex flex-wrap gap-6 justify-even">
+    <div id="events-list" class="flex flex-wrap gap-6 justify-evenly">
         <?php
         include './operations/db_connection.php';
         $sql = "SELECT * FROM event ORDER BY start_date ASC";
