@@ -41,7 +41,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect to the appropriate dashboard
             if ($userType === "user") {
                 $_SESSION['user_id'] = $row['id'];
-                header("Location: ../index.php");
+                // Show loader.html and redirect to dashboard.php after 1s
+                ob_end_clean();
+                echo '<!DOCTYPE html><html lang="en"><head>';
+                echo '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">';
+                echo '<title>Redirecting...</title>';
+                echo '<link rel="stylesheet" href="../assets/css/loader.css">';
+                echo '<style>body{background:#fafbfc;display:flex;align-items:center;justify-content:center;height:100vh;}</style>';
+                echo '</head><body>';
+                include '../loader.html';
+                echo '<script>setTimeout(function(){ window.location.href = "../dashboard.php"; }, 1000);</script>';
+                echo '</body></html>';
+                flush();
+                exit();
             } else if ($userType === "admin") {
                 $_SESSION['host_id'] = $row['id'];
                 header("Location: ../admin-your-events.php");

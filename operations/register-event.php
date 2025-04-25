@@ -14,7 +14,7 @@ $participantId = $_SESSION['user_id'];
 $eventId = intval($_GET['eventId']); // Make sure eventId is an integer to prevent SQL injection
 
 // Check if the eventId exists in the events table to avoid invalid registrations
-$sql_check_event = "SELECT * FROM events WHERE id = $eventId";
+$sql_check_event = "SELECT * FROM event WHERE id = $eventId";
 $result_check_event = $conn->query($sql_check_event);
 
 // Check if the participant is already registered for this event
