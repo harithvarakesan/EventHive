@@ -1,6 +1,6 @@
 <?php
-include 'admin-header.php';
-include './operations/db_connection.php';
+include '../admin/admin-header.php';
+include '../operations/db_connection.php';
 
 if (!isset($_SESSION['host_id'])) {
     echo "<script>alert('You are not authorized to access this page.'); window.history.back();</script>";
@@ -87,17 +87,17 @@ $conn->close();
       </div>
     </div>
         <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
-<?php include 'admin_sidebar.php'; ?>
+<?php include '../admin/admin_sidebar.php'; ?>
 <div class="md:ml-60 flex flex-col min-h-screen transition-all duration-300">
     <header class="flex items-center justify-between px-6 py-6 border-b bg-white sticky top-0 z-40">
         <h1 class="text-2xl font-bold text-orange-600">Event Details</h1>
-        <a href="admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
+        <a href="../admin/admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
     </header>
     <main class="flex-1 p-6 flex items-center justify-center">
         <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100">
             <div class="mb-6 flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-orange-700"><?php echo htmlspecialchars($event['name']); ?></h2>
-                <a href="admin-update-event.php?id=<?php echo (int)$event['id']; ?>" class="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition"><i data-lucide='edit-3' class='w-5 h-5'></i> Update Event</a>
+                <a href="../admin/admin-update-event.php?id=<?php echo (int)$event['id']; ?>" class="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition"><i data-lucide='edit-3' class='w-5 h-5'></i> Update Event</a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                 <div>

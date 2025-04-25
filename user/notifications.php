@@ -1,7 +1,7 @@
 <?php
 // notifications.php - User notifications page (demo)
 $pageTitle = "Notifications - EventHive";
-include 'header.php';
+include '../header.php';
 ?>
 <div class="flex-1 flex flex-col items-center justify-start py-12">
   <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
@@ -25,7 +25,7 @@ function timeAgo(dateString) {
   return Math.floor(diff/86400) + 'd ago';
 }
 function fetchUserNotifications() {
-  fetch('get_all_notifications.php')
+  fetch('../get_all_notifications.php')
     .then(res => res.json())
     .then(data => {
       const list = document.getElementById('user-notif-list');

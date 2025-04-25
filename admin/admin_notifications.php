@@ -1,7 +1,7 @@
 <?php
 // admin_notifications.php - Admin notifications page
 $pageTitle = "Admin Notifications - EventHive";
-include 'admin-header.php';
+include '../admin/admin-header.php';
 ?>
 <div class="flex-1 flex flex-col items-center justify-start py-12">
   <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
@@ -23,7 +23,7 @@ function timeAgo(dateString) {
   return Math.floor(diff/86400) + 'd ago';
 }
 function fetchAdminNotifications() {
-  fetch('get_all_notifications.php')
+  fetch('../get_all_notifications.php')
     .then(res => res.json())
     .then(data => {
       const list = document.getElementById('admin-notif-list');

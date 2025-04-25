@@ -1,6 +1,6 @@
 <?php
-include 'admin-header.php';
-include './operations/db_connection.php';
+include '../admin/admin-header.php';
+include '../operations/db_connection.php';
 if (!isset($_SESSION['host_id'])) {
     echo "<script>alert('You are not authorized to access this page.'); window.history.back();</script>";
     exit();
@@ -55,7 +55,7 @@ $conn->close();
       </div>
     </div>
         <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
-<?php include 'admin_sidebar.php'; ?>
+<?php include '../admin/admin_sidebar.php'; ?>
 <div class="md:ml-60 flex flex-col min-h-screen transition-all duration-300">
     <header class="flex items-center justify-between px-6 py-6 border-b bg-white sticky top-0 z-40">
         <h1 class="text-2xl font-bold text-orange-600">Dashboard</h1>
@@ -76,7 +76,7 @@ $conn->close();
 
         <!-- Recent Events -->
         <?php
-        include './operations/db_connection.php';
+        include '../operations/db_connection.php';
         $recentEvents = [];
         $stmt = $conn->prepare("SELECT id, name, start_date, end_date, location FROM event WHERE host = ? ORDER BY start_date DESC LIMIT 5");
         $stmt->bind_param("i", $hostId);
@@ -168,12 +168,12 @@ $conn->close();
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>if(typeof Chart==='undefined'){document.write('<script src="assets/js/Chart.min.js"><\/script>');}</script>
+        <script>if(typeof Chart==='undefined'){document.write('<script src="../assets/js/Chart.min.js"><\/script>');}</script>
         <script>
         window.eventsPerMonthData = <?php echo json_encode($eventsPerMonth); ?>;
         window.participantsPerEventData = <?php echo json_encode($participantsPerEvent); ?>;
         </script>
-        <script src="assets/js/admin_dashboard_charts.js"></script>
+        <script src="../assets/js/admin_dashboard_charts.js"></script>
 
         <div class="w-full max-w-4xl mt-8">
             <div class="bg-white rounded-xl shadow p-8 border border-orange-100">
@@ -190,7 +190,7 @@ $conn->close();
 <script>if(window.lucide) lucide.createIcons();</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="assets/js/uiux.js"></script>
+<script src="../assets/js/uiux.js"></script>
 <script>
 window.showBeeLoader = function(show = true) {
   const loader = document.getElementById('bee-loader');

@@ -1,5 +1,5 @@
 <?php
-include './operations/db_connection.php';
+include '../operations/db_connection.php';
 if (!isset($_SESSION)) session_start();
 // Handle delete request
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_event_id'])) {
@@ -140,7 +140,7 @@ $hostId = isset($_SESSION['host_id']) ? $_SESSION['host_id'] : null;
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="assets/js/uiux.js"></script>
+<script src="../assets/js/uiux.js"></script>
 <script>
 window.showBeeLoader = function(show = true) {
   const loader = document.getElementById('bee-loader');

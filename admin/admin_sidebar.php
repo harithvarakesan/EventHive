@@ -45,7 +45,7 @@ $adminName = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
         </div>
       </div>
     </div>
-    <a href="admin-logout.php" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-50 text-red-500 font-medium">
+    <a href="../logout.php" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-50 text-red-500 font-medium">
       <i data-lucide="log-out" class="w-5 h-5 text-red-400"></i> Logout
     </a>
     <!-- <button id="dark-mode-toggle" class="flex items-center gap-2 mt-4 px-4 py-2 rounded-lg hover:bg-orange-100 text-gray-700 font-medium bg-gray-100">
