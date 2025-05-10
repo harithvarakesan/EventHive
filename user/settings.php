@@ -1,7 +1,7 @@
 <?php
 // settings.php - User settings page (demo)
 $pageTitle = "Settings - EventHive";
-include 'header.php';
+include '../header.php';
 ?>
 <div class="flex-1 flex flex-col items-center justify-start py-12">
   <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">

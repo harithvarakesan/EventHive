@@ -34,7 +34,7 @@ $userName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : null;
                     </span>
                 </div>
             </div>
-            <a href="logout.php" class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-lg transition">Sign Out</a>
+            <a href="../logout.php" class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-lg transition">Sign Out</a>
         <?php else: ?>
             <div class="mb-3 text-sm text-gray-700">
                 <div class="font-semibold">Not signed in</div>

@@ -1,6 +1,11 @@
 <?php
-include './header.php';
-include './operations/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+$pageTitle = "Profile - EventHive";
+include '../header.php';
+include '../operations/db_connection.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");

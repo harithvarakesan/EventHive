@@ -1,7 +1,7 @@
 
 <?php
 if (!isset($_SESSION)) session_start();
-include './operations/db_connection.php';
+include '../operations/db_connection.php';
 // Get the user_id from the session
 $userId = $_SESSION['host_id'];
 // Fetch user details from the database
@@ -33,11 +33,11 @@ $conn->close();
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <?php include 'admin_sidebar.php'; ?>
+    <?php include '../admin/admin_sidebar.php'; ?>
     <div class="md:ml-60 flex flex-col min-h-screen transition-all duration-300">
         <header class="flex items-center justify-between px-6 py-6 border-b bg-white sticky top-0 z-40">
             <h1 class="text-2xl font-bold text-orange-600">Admin Profile</h1>
-            <a href="admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
+            <a href="../admin/admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
         </header>
         <main class="flex-1 p-6 flex items-center justify-center">
             <div class="w-full max-w-xl bg-white rounded-xl shadow p-8 border border-orange-100">

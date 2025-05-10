@@ -1,6 +1,9 @@
 <?php
-include './header.php';
-include './operations/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+include '../operations/db_connection.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -30,7 +33,7 @@ if ($result && $result->num_rows > 0) {
 $conn->close();
 ?>
 
-<?php $pageTitle = "Event Leaderboard"; ?>
+<?php $pageTitle = "Leaderboard - EventHive"; include '../header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

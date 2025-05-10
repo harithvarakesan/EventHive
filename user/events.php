@@ -1,4 +1,9 @@
-<?php $pageTitle = "Events - EventHive"; include 'header.php'; ?>
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+$pageTitle = "Events - EventHive"; include '../header.php'; ?>
 
 <div class="w-full min-h-screen bg-gray-50 font-inter p-8">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
@@ -9,7 +14,7 @@
     </div>
     <div id="events-list" class="flex flex-wrap gap-6 justify-evenly">
         <?php
-        include './operations/db_connection.php';
+        include '../operations/db_connection.php';
         $sql = "SELECT * FROM event ORDER BY start_date ASC";
         $result = $conn->query($sql);
         if ($result && $result->num_rows > 0) {
@@ -26,8 +31,8 @@
                 // echo "<div class='text-sm text-gray-500 mb-2'><i class='fa fa-users mr-1'></i> " . htmlspecialchars($row['participants'] ?? 0) . " participants</div>";
                 echo "<p class='text-gray-600 mb-3'>" . htmlspecialchars($row['short_description']) . "</p>";
                 echo "<div class='flex gap-2 mt-auto'>";
-                echo "<a href='eventDetails.php?eventId=" . urlencode($row['id']) . "' class='px-4 py-2 bg-orange-50 text-orange-500 rounded-lg font-medium hover:bg-orange-100 transition'>View Details</a>";
-                echo "<a href='operations/register-event.php?eventId=" . urlencode($row['id']) . "' class='px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition'>Register</a>";
+                echo "<a href='../user/eventDetails.php?eventId=" . urlencode($row['id']) . "' class='px-4 py-2 bg-orange-50 text-orange-500 rounded-lg font-medium hover:bg-orange-100 transition'>View Details</a>";
+                echo "<a href='../operations/register-event.php?eventId=" . urlencode($row['id']) . "' class='px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition'>Register</a>";
                 echo "</div>";
                 echo "</div>";
             }

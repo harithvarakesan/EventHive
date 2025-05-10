@@ -1,7 +1,12 @@
 
-<?php include './header.php'; ?>
 <?php
-include './operations/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+include '../header.php'; ?>
+<?php
+include '../operations/db_connection.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {

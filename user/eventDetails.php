@@ -1,6 +1,11 @@
-<?php $pageTitle = "Event Details - EventHive"; include 'header.php'; ?>
 <?php
-include './operations/db_connection.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+$pageTitle = "Event Details - EventHive"; include '../header.php'; ?>
+<?php
+include '../operations/db_connection.php';
 $eventId = isset($_GET['eventId']) ? intval($_GET['eventId']) : 0;
 
 // Query to fetch event details based on eventId
@@ -76,7 +81,7 @@ $conn->close();
                 <?php endif; ?>
             </div>
             <div class="flex gap-4 mt-auto">
-                <a href="operations/register-event.php?eventId=<?= urlencode($event['id']) ?>" class="px-6 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition">Register Now</a>
+                <a href="../operations/register-event.php?eventId=<?= urlencode($event['id']) ?>" class="px-6 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition">Register Now</a>
                 <button onclick="window.history.back()" class="px-6 py-2 bg-orange-50 text-orange-500 rounded-lg font-semibold hover:bg-orange-100 transition">Back to Events</button>
             </div>
         </div>

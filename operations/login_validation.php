@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './db_connection.php';
+include '../operations/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Query and validate based on user type
     if ($userType === "user") {
-        $query = "SELECT id, username, emailid, password FROM user WHERE username = ?";
+        $query = "SELECT id, username, emailid, password FROM user WHERE username = ? OR emailid = ?";
     } else if ($userType === "admin") {
-        $query = "SELECT id, username, emailid, password FROM faculty WHERE username = ?";
+        $query = "SELECT id, username, emailid, password FROM faculty WHERE username = ? OR emailid = ?";
     } else {
         echo "<script>alert('Invalid user type.'); window.history.back();</script>";
         exit();
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Bind parameters and execute the query
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("ss", $username, $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -49,14 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<link rel="stylesheet" href="../assets/css/loader.css">';
                 echo '<style>body{background:#fafbfc;display:flex;align-items:center;justify-content:center;height:100vh;}</style>';
                 echo '</head><body>';
-                include '../loader.html';
-                echo '<script>setTimeout(function(){ window.location.href = "../dashboard.php"; }, 1000);</script>';
+                include '../../loader.html';
+                echo '<script>setTimeout(function(){ window.location.href = "../user/dashboard.php"; }, 1000);</script>';
                 echo '</body></html>';
                 flush();
                 exit();
             } else if ($userType === "admin") {
                 $_SESSION['host_id'] = $row['id'];
-                header("Location: ../admin-your-events.php");
+                header("Location: ../admin/admin_dashboard.php");
             }
             exit();
         } else {

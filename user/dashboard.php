@@ -1,8 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
 // User Dashboard for EventHive
 $pageTitle = "Dashboard - EventHive";
-include 'header.php';
-include './operations/db_connection.php';
+include '../header.php';
+include '../operations/db_connection.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -133,19 +137,19 @@ $conn->close();
       </div>
       <!-- Quick Actions -->
       <div class="bg-orange-100 rounded-2xl shadow-lg p-6 flex flex-col gap-4 items-center justify-center dashboard-widget">
-        <a href="events.php" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
+        <a href="../user/events.php" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
           <i data-lucide="calendar-plus" class="w-5 h-5"></i> Register for Events
         </a>
-        <a href="leaderboard.php" class="w-full bg-orange-50 hover:bg-orange-200 text-orange-600 font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
+        <a href="../user/leaderboard.php" class="w-full bg-orange-50 hover:bg-orange-200 text-orange-600 font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
           <i data-lucide="trophy" class="w-5 h-5"></i> View Leaderboard
         </a>
-        <a href="profile.php" class="w-full bg-orange-50 hover:bg-orange-200 text-orange-600 font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
+        <a href="../user/profile.php" class="w-full bg-orange-50 hover:bg-orange-200 text-orange-600 font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2">
           <i data-lucide="user" class="w-5 h-5"></i> View Profile
         </a>
       </div>
     </div>
   </div>
 </div>
-<script src="assets/js/uiux.js"></script>
+<script src="../assets/js/uiux.js"></script>
 <script>if(window.lucide) lucide.createIcons();</script>
 

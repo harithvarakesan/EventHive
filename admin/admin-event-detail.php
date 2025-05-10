@@ -1,6 +1,6 @@
 <?php
-include 'admin-header.php';
-include './operations/db_connection.php';
+include '../admin/admin-header.php';
+include '../operations/db_connection.php';
 
 if (!isset($_SESSION['host_id'])) {
     echo "<script>alert('You are not authorized to access this page.'); window.history.back();</script>";
@@ -59,24 +59,45 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="assets/css/bee-loader.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-<?php include 'admin_sidebar.php'; ?>
+<body>
+    <div id="bee-loader" class="bee-loader-container" style="display:none">
+      <div class="bee-loader">
+        <div class="bee-wings">
+          <div class="bee-wing left"></div>
+          <div class="bee-wing right"></div>
+        </div>
+        <div class="bee-body"></div>
+        <div class="bee-stripes">
+          <span class="stripe1"></span>
+          <span class="stripe2"></span>
+          <span class="stripe3"></span>
+        </div>
+        <div class="bee-face">
+          <div class="bee-eye"></div>
+          <div class="bee-eye"></div>
+        </div>
+      </div>
+    </div>
+        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+<?php include '../admin/admin_sidebar.php'; ?>
 <div class="md:ml-60 flex flex-col min-h-screen transition-all duration-300">
     <header class="flex items-center justify-between px-6 py-6 border-b bg-white sticky top-0 z-40">
         <h1 class="text-2xl font-bold text-orange-600">Event Details</h1>
-        <a href="admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
+        <a href="../admin/admin-your-events.php" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 hover:bg-orange-200 font-medium transition"><i data-lucide='arrow-left' class='w-5 h-5'></i> Back to Events</a>
     </header>
     <main class="flex-1 p-6 flex items-center justify-center">
         <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100">
             <div class="mb-6 flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-orange-700"><?php echo htmlspecialchars($event['name']); ?></h2>
-                <a href="admin-update-event.php?id=<?php echo (int)$event['id']; ?>" class="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition"><i data-lucide='edit-3' class='w-5 h-5'></i> Update Event</a>
+                <a href="../admin/admin-update-event.php?id=<?php echo (int)$event['id']; ?>" class="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition"><i data-lucide='edit-3' class='w-5 h-5'></i> Update Event</a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                 <div>
@@ -106,8 +127,69 @@ $conn->close();
                 <div class="bg-orange-50 rounded p-3 text-gray-600"><?php echo nl2br(htmlspecialchars($event['eligibility'])); ?></div>
             </div>
         </div>
+        <!-- Participants Table -->
+        <?php if ($students && $students->num_rows > 0): ?>
+        <form method="post" class="mt-8">
+            <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100 mt-6">
+                <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-orange-700">Registered Participants</h3>
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 font-medium transition">Update Attendance & Marks</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-orange-100">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Name</th>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Attendance</th>
+                                <th class="px-4 py-2 text-left text-xs font-semibold text-gray-700 uppercase">Mark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($students as $student): ?>
+                            <tr class="border-b">
+                                <td class="px-4 py-2 text-gray-800"><?php echo htmlspecialchars($student['name']); ?></td>
+                                <td class="px-4 py-2">
+                                    <input type="checkbox" name="participants[<?php echo $student['participant_id']; ?>][attendance]" value="1" <?php echo ($student['mark'] != -1 ? 'checked' : ''); ?> class="w-5 h-5 text-orange-500 border-gray-300 rounded">
+                                </td>
+                                <td class="px-4 py-2">
+                                    <input type="number" name="participants[<?php echo $student['participant_id']; ?>][mark]" min="0" max="100" value="<?php echo ($student['mark'] != -1 ? (int)$student['mark'] : ''); ?>" class="w-20 px-2 py-1 border rounded">
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <?php else: ?>
+            <div class="w-full max-w-3xl bg-white rounded-xl shadow p-8 border border-orange-100 mt-6 text-center text-gray-500">
+                No participants registered for this event.
+            </div>
+        <?php endif; ?>
     </main>
 </div>
 <script>if(window.lucide) lucide.createIcons();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/js/uiux.js"></script>
+<script>
+window.showBeeLoader = function(show = true) {
+  const loader = document.getElementById('bee-loader');
+  if (!loader) return;
+  loader.style.display = show ? 'flex' : 'none';
+}
+</script>
+<script>
+// Toast utility
+window.showToast = function(msg, type = 'info', duration = 3000) {
+  const toast = document.createElement('div');
+  toast.className = `px-4 py-2 rounded shadow text-white font-semibold toast-${type}`;
+  toast.style.background = type === 'success' ? '#16a34a' : type === 'error' ? '#dc2626' : '#ea580c';
+  toast.textContent = msg;
+  document.getElementById('toast-container').appendChild(toast);
+  setTimeout(() => toast.remove(), duration);
+}
+</script>
+<style>.toast-info{background:#ea580c}.toast-success{background:#16a34a}.toast-error{background:#dc2626}</style>
 </body>
 </html>
