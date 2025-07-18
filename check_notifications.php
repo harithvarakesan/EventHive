@@ -34,3 +34,6 @@ if ($adminId) {
 echo json_encode([
     'new_notifications' => $newNotifications
 ]);
+
+
+
