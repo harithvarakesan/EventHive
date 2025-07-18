@@ -4,7 +4,7 @@
 
 EventHive is a modern event management platform built with PHP and MySQL. It enables users to discover, register, and participate in events, while providing admins with tools to manage events, view analytics, and monitor participation.
 
----
+
 
 ## ✨ Features
 
