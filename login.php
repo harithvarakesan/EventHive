@@ -1,3 +1,6 @@
+
+
+
 <?php $pageTitle = "Login - EventHive"; ?>
 <!DOCTYPE html>
 <html lang="en">
