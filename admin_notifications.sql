@@ -1,3 +1,6 @@
+
+
+
 -- SQL to create the admin_notifications table for real-time notifications
 CREATE TABLE IF NOT EXISTS admin_notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
